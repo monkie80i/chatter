@@ -11,3 +11,4 @@ class ChatConsumer(WebsocketConsumer):
 
 	#recieve message from websocket
 	def recieve(self,text_data):
+		pass
