@@ -1,6 +1,11 @@
 from django.urls import re_path
-from . import consumers
+from .consumers import NotificationConsumer
+from channels.routing import ProtocolTypeRouter, URLRouter
 
-websocket_urlpatterns = [
-	re_path(r'ws/chat/room/(?P<course_id>\d+)/$', consumers.ChatConsumer),
-]
+websockets = URLRouter([
+    path(
+        "ws/notifications/",
+        NotificationConsumer,
+        name="ws_notifications",
+    ),
+])
